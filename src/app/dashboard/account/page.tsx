@@ -74,7 +74,7 @@ export default function Page() {
 <body>
   <div class="receipt">
 
-    <h3>Receipt / Payment Confirmation</h3>
+    <h3>Payment Confirmation</h3>
 
     <div style="text-align:center;">
       <img src="/assets/ad-logo.jpg" style="max-width: 20mm;" />
@@ -100,7 +100,7 @@ export default function Page() {
       <img src="/assets/ad-qr.png" style="max-width: 25mm;" />
     </div>
 
-    <div style="margin-top: 25px;margin-bottom: 35px;">
+    <div style="margin: 60px 0;">
       <p><strong>Authorized Signature:</strong></p>
     </div>
 
@@ -118,8 +118,10 @@ const handlePrint = () => {
   w.document.open();
   w.document.write(html);
   // w.document.close();
-
-  w.print();
+  w.onload = () => {
+    w.focus();
+    w.print();
+  };
 };
 	return (
 		<Stack spacing={3}>
