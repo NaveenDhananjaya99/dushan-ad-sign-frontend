@@ -94,7 +94,7 @@ export default function Page() {
 
     <hr />
 
-    <p>This receipt confirms that the student has paid the selected package.<br/>Thank you for your payment.</p>
+    <p>This receipt confirms that the student has paid the selected package.<br/></p>
 
     <div style="text-align:center; margin:15px 0;">
       <img src="/assets/ad-qr.png" style="max-width: 30mm;" />
@@ -103,8 +103,9 @@ export default function Page() {
     <div style="margin: 60px 0;">
       <p><strong>Authorized Signature:</strong></p>
       <br/>
+       <br/>
       <br/>
-      <br/>
+      <p><strong>Thank you for your payment.</strong></p>
     </div>
 
   </div>
