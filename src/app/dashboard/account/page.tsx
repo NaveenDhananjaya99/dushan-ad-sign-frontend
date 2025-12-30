@@ -47,11 +47,9 @@ export default function Page() {
 
     .receipt {
       font-family: Arial, sans-serif;
-      width: 80mm;        /* match page width */
+      width: 80mm;       
       margin: 0 auto;
-      padding: 6mm;
       box-sizing: border-box;
-      border: 1px solid #ccc;
     }
 
     h2, h3 {
@@ -100,7 +98,7 @@ export default function Page() {
     <p>This receipt confirms that the student has paid the selected package.<br/>Thank you for your payment.</p>
 
     <div style="text-align:center; margin:15px 0;">
-      <img src="/assets/ad-qr.png" style="max-width: 25mm;" />
+      <img src="/assets/ad-qr.png" style="max-width: 45mm;" />
     </div>
 
     <div style="margin-top: 25px;margin-bottom: 35px;">
