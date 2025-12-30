@@ -68,7 +68,7 @@ Authorized Signature: ______________________
 		pre.style.fontSize = "14px";
 		pre.style.whiteSpace = "pre-wrap"; // wrap long lines
 		pre.style.margin = "20px";
-		w.document.body.appendChild(pre);
+		w.document.body.append(pre);
 
 		w.print();
 		// w.close(); // optional
