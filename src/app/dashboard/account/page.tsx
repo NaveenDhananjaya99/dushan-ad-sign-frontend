@@ -50,6 +50,7 @@ export default function Page() {
       width: 80mm;       
       margin: 0 auto;
       box-sizing: border-box;
+      text-aglign:center;
     }
 
     h2, h3 {
@@ -79,9 +80,8 @@ export default function Page() {
       <img src="/assets/ad-logo.jpg" style="max-width: 20mm;" />
     </div>
 
-    <div style="text-align:center; font-size: 14px; line-height: 1.4; margin-bottom: 10px;">
-      <h2>AD SIGN SWIMMING ACADEMY</h2>
-      <div>AD SIGN SPORTS (PVT) LTD</div>
+    <div style="text-align:center; font-size: 12px; line-height: 1.4; margin-bottom: 10px;">
+      <h3>AD SIGN SWIMMING ACADEMY</h3>
       <div>074 2 300 350</div>
       <div>091 2 26 24 25</div>
       <p><strong>Issue date :</strong> ${dateStr}</p>
@@ -91,14 +91,13 @@ export default function Page() {
     <p><strong>Student ID:</strong> ${formData.studentId}</p>
     <p><strong>Package Name:</strong> ${formData.packageName}</p>
     <p><strong>Amount Paid:</strong> LKR ${formData.packageAmount}</p>
-    <p><strong>Date:</strong> ${dateStr}</p>
 
     <hr />
 
     <p>This receipt confirms that the student has paid the selected package.<br/>Thank you for your payment.</p>
 
     <div style="text-align:center; margin:15px 0;">
-      <img src="/assets/ad-qr.png" style="max-width: 45mm;" />
+      <img src="/assets/ad-qr.png" style="max-width: 25mm;" />
     </div>
 
     <div style="margin-top: 25px;margin-bottom: 35px;">
