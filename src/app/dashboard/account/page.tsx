@@ -8,6 +8,7 @@ import {
 	DialogContent,
 	DialogTitle,
 	Grid,
+	MenuItem,
 	Stack,
 	TextField,
 	Typography,
@@ -114,21 +115,21 @@ export default function Page() {
   `;
 	};
 
-const handlePrint = () => {
-  const html = generateReceipt();
-  const w = window.open("", "_blank");
-  if (!w) return;
+	const handlePrint = () => {
+		const html = generateReceipt();
+		const w = window.open("", "_blank");
+		if (!w) return;
 
-  w.document.open();
-  w.document.write(html);
-  w.document.close();
+		w.document.open();
+		w.document.write(html);
+		w.document.close();
 
-  // Wait for popup content + images to load
-  w.addEventListener("load", () => {
-    w.focus();
-    w.print();
-  });
-};
+		// Wait for popup content + images to load
+		w.addEventListener("load", () => {
+			w.focus();
+			w.print();
+		});
+	};
 
 	return (
 		<Stack spacing={3}>
@@ -171,15 +172,28 @@ const handlePrint = () => {
 					/>
 					<TextField
 						margin="dense"
+            defaultValue="Day-Fees-400"
 						label="Package Name"
 						name="packageName"
+						select
 						fullWidth
 						value={formData.packageName}
 						onChange={handleChange}
-					/>
+					>
+						<MenuItem value="">Select a package</MenuItem>
+            <MenuItem value="Day-Fees-400">Day-Fees - 400</MenuItem>
+            <MenuItem value="Day-Fees-500">Day-Fees - 500</MenuItem>
+            <MenuItem value="Monthly-2000">Monthly - 2000</MenuItem>
+            <MenuItem value="Monthly-2500">Monthly - 2500</MenuItem>
+						<MenuItem value="Monthly-3000">Monthly - 3000</MenuItem>
+            <MenuItem value="Monthly-3500">Monthly - 3500</MenuItem>
+            <MenuItem value="Monthly-5000">Monthly - 5000</MenuItem>
+						<MenuItem value="Monthly-6000">Monthly - 6000</MenuItem>
+            <MenuItem value="Monthly-7500">Monthly - 7500</MenuItem>
+					</TextField>
 					<TextField
 						margin="dense"
-						label="Amount Paid (£)"
+						label="Amount Paid (LKR)"
 						name="packageAmount"
 						type="number"
 						fullWidth
