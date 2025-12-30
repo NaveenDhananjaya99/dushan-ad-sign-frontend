@@ -106,7 +106,9 @@ export default function Page() {
       <br/>
        <br/>
       <br/>
-      <p><strong>Thank you for your payment.</strong></p>
+    <div style="text-align:center; margin-top: 20px;">
+      <p><strong>-----Thank you for your payment.-----</strong></p>
+    </div>
     </div>
 
   </div>
@@ -172,7 +174,7 @@ export default function Page() {
 					/>
 					<TextField
 						margin="dense"
-            defaultValue="Day-Fees-400"
+						defaultValue="Day-Fees-400"
 						label="Package Name"
 						name="packageName"
 						select
@@ -181,15 +183,15 @@ export default function Page() {
 						onChange={handleChange}
 					>
 						<MenuItem value="">Select a package</MenuItem>
-            <MenuItem value="Day-Fees-400">Day-Fees - 400</MenuItem>
-            <MenuItem value="Day-Fees-500">Day-Fees - 500</MenuItem>
-            <MenuItem value="Monthly-2000">Monthly - 2000</MenuItem>
-            <MenuItem value="Monthly-2500">Monthly - 2500</MenuItem>
+						<MenuItem value="Day-Fees-400">Day-Fees - 400</MenuItem>
+						<MenuItem value="Day-Fees-500">Day-Fees - 500</MenuItem>
+						<MenuItem value="Monthly-2000">Monthly - 2000</MenuItem>
+						<MenuItem value="Monthly-2500">Monthly - 2500</MenuItem>
 						<MenuItem value="Monthly-3000">Monthly - 3000</MenuItem>
-            <MenuItem value="Monthly-3500">Monthly - 3500</MenuItem>
-            <MenuItem value="Monthly-5000">Monthly - 5000</MenuItem>
+						<MenuItem value="Monthly-3500">Monthly - 3500</MenuItem>
+						<MenuItem value="Monthly-5000">Monthly - 5000</MenuItem>
 						<MenuItem value="Monthly-6000">Monthly - 6000</MenuItem>
-            <MenuItem value="Monthly-7500">Monthly - 7500</MenuItem>
+						<MenuItem value="Monthly-7500">Monthly - 7500</MenuItem>
 					</TextField>
 					<TextField
 						margin="dense"
