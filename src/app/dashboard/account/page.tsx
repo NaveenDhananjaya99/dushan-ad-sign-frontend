@@ -98,10 +98,10 @@ export default function Page() {
     <p>This receipt confirms that the student has paid the selected package.<br/></p>
 
     <div style="text-align:center;">
-      <img src="/assets/add-qr.svg" style="max-width: 38mm;" />
+      <img src="/assets/add-qr.svg" style="max-width: 40mm;" />
     </div>
 
-    <div style="margin: 60px 0;">
+    <div style="margin: 10px 0;">
       <p><strong>Authorized Signature:</strong></p>
       <br/>
        <br/>
