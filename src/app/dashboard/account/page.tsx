@@ -117,12 +117,15 @@ const handlePrint = () => {
 
   w.document.open();
   w.document.write(html);
-  // w.document.close();
-  w.onload = () => {
+  w.document.close();
+
+  // Wait for popup content + images to load
+  w.addEventListener("load", () => {
     w.focus();
     w.print();
-  };
+  });
 };
+
 	return (
 		<Stack spacing={3}>
 			<Typography variant="h4">Account</Typography>
