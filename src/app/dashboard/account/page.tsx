@@ -33,62 +33,98 @@ export default function Page() {
 	const generateReceipt = () => {
 		const today = new Date();
 		const dateStr = today.toLocaleDateString() + " " + today.toLocaleTimeString();
-
 		return `
-    <div style="font-family: Arial, sans-serif; width: 600px; margin: auto; border: 1px solid #ccc; padding: 20px;">
-      <h3 style="text-align: center;">Receipt / Payment Confirmation</h3>
-    <!-- Logo -->
-      <div style="text-align: center; margin-bottom: 20px;">
-       <img src="/assets/ad-logo.jpg" alt="AD SIGN SWIMMING ACADEMY" style="max-width: 100px;" />
-      </div>
-      <!-- Academy info -->
-      <div style="text-align: center; margin-bottom: 20px; font-size: 14px; line-height: 1.4;">
-        <h2>AD SIGN SWIMMING ACADEMY</h2>
-        <div>AD SIGN SPORTS (PVT) LTD</div>
-        <div>074 2 300 350</div>
-        <div>091 2 26 24 25</div>
-        <p><strong>Issue date :</strong> ${dateStr}</p>
-      </div>
-      
+<html>
+<head>
+  <style>
+    @page {
+      size: 80mm 297mm;   /* RECEIPT SIZE */
+      margin: 5mm;        /* adjust if needed */
+    }
 
-      <p><strong>Student Name:</strong> ${formData.studentName}</p>
-      <p><strong>Student ID:</strong> ${formData.studentId}</p>
-      <p><strong>Package Name:</strong> ${formData.packageName}</p>
-      <p><strong>Amount Paid:</strong> LKR ${formData.packageAmount}</p>
-      <p><strong>Date:</strong> ${dateStr}</p>
+    @media print {
+      body { margin: 0; }
+    }
 
-      <hr />
+    .receipt {
+      font-family: Arial, sans-serif;
+      width: 80mm;        /* match page width */
+      margin: 0 auto;
+      padding: 6mm;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+    }
 
-      <p>This receipt confirms that the student has paid the selected package.<br/>Thank you for your payment.</p>
-    <!-- QR  -->
-      <div style="text-align: center; margin-bottom: 20px;">
-       <img src="/assets/ad-qr.png" alt="AD SIGN SWIMMING ACADEMY" style="max-width: 100px;" />
-      </div>
-      <!-- Signature -->
-      <div style="margin-top: 50px;">
-        <p>Authorized Signature:</p>
-      </div>
-    </div>;`;
+    h2, h3 {
+      margin: 6px 0;
+      text-align: center;
+    }
+
+    p {
+      margin: 4px 0;
+      font-size: 13px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #aaa;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="receipt">
+
+    <h3>Receipt / Payment Confirmation</h3>
+
+    <div style="text-align:center; margin:10px 0;">
+      <img src="/assets/ad-logo.jpg" style="max-width: 60mm;" />
+    </div>
+
+    <div style="text-align:center; font-size: 14px; line-height: 1.4; margin-bottom: 10px;">
+      <h2>AD SIGN SWIMMING ACADEMY</h2>
+      <div>AD SIGN SPORTS (PVT) LTD</div>
+      <div>074 2 300 350</div>
+      <div>091 2 26 24 25</div>
+      <p><strong>Issue date :</strong> ${dateStr}</p>
+    </div>
+
+    <p><strong>Student Name:</strong> ${formData.studentName}</p>
+    <p><strong>Student ID:</strong> ${formData.studentId}</p>
+    <p><strong>Package Name:</strong> ${formData.packageName}</p>
+    <p><strong>Amount Paid:</strong> LKR ${formData.packageAmount}</p>
+    <p><strong>Date:</strong> ${dateStr}</p>
+
+    <hr />
+
+    <p>This receipt confirms that the student has paid the selected package.<br/>Thank you for your payment.</p>
+
+    <div style="text-align:center; margin:15px 0;">
+      <img src="/assets/ad-qr.png" style="max-width: 45mm;" />
+    </div>
+
+    <div style="margin-top: 25px;">
+      <p><strong>Authorized Signature:</strong></p>
+    </div>
+
+  </div>
+</body>
+</html>
+  `;
 	};
 
-	const handlePrint = () => {
-		const html = generateReceipt();
-		const w = window.open("", "_blank");
-		if (!w) return;
+const handlePrint = () => {
+  const html = generateReceipt();
+  const w = window.open("", "_blank");
+  if (!w) return;
 
-		w.document.title = "Payment Receipt";
-  
-		// Inject HTML directly
-		w.document.body.innerHTML = html;
+  w.document.open();
+  w.document.write(html);
+  // w.document.close();
 
-		w.print();
-		// w.close(); // optional
-	};
-	const handleSave = () => {
-		handleClose();
-		handlePrint();
-	};
-
+  w.print();
+};
 	return (
 		<Stack spacing={3}>
 			<Typography variant="h4">Account</Typography>
@@ -148,7 +184,7 @@ export default function Page() {
 				</DialogContent>
 				<DialogActions>
 					<Button onClick={handleClose}>Cancel</Button>
-					<Button onClick={handleSave} variant="contained">
+					<Button onClick={handlePrint} variant="contained">
 						Save & Print
 					</Button>
 				</DialogActions>
