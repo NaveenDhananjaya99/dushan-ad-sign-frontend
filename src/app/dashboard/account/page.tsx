@@ -97,8 +97,8 @@ export default function Page() {
 
     <p>This receipt confirms that the student has paid the selected package.<br/></p>
 
-    <div style="text-align:center; margin:5px 0;">
-      <img src="/assets/ad-qr.png" style="max-width: 45mm;" />
+    <div style="text-align:center;">
+      <img src="/assets/ad-qr.png" style="max-width: 35mm;" />
     </div>
 
     <div style="margin: 60px 0;">
