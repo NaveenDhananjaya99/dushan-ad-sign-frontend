@@ -35,45 +35,55 @@ export default function Page() {
 		const dateStr = today.toLocaleDateString() + " " + today.toLocaleTimeString();
 
 		return `
-AD SIGN SWIMMING ACADEMY
-123 STORE ST, store@store.com, www.store.com
---------------------------------------------
+    <div style="font-family: Arial, sans-serif; width: 600px; margin: auto; border: 1px solid #ccc; padding: 20px;">
+      <h3 style="text-align: center;">Receipt / Payment Confirmation</h3>
+    <!-- Logo -->
+      <div style="text-align: center; margin-bottom: 20px;">
+       <img src="/assets/ad-logo.jpg" alt="AD SIGN SWIMMING ACADEMY" style="max-width: 100px;" />
+      </div>
+      <!-- Academy info -->
+      <div style="text-align: center; margin-bottom: 20px; font-size: 14px; line-height: 1.4;">
+        <h2>AD SIGN SWIMMING ACADEMY</h2>
+        <div>AD SIGN SPORTS (PVT) LTD</div>
+        <div>074 2 300 350</div>
+        <div>091 2 26 24 25</div>
+        <p><strong>Issue date :</strong> ${dateStr}</p>
+      </div>
+      
 
-Receipt / Payment Confirmation
+      <p><strong>Student Name:</strong> ${formData.studentName}</p>
+      <p><strong>Student ID:</strong> ${formData.studentId}</p>
+      <p><strong>Package Name:</strong> ${formData.packageName}</p>
+      <p><strong>Amount Paid:</strong> LKR ${formData.packageAmount}</p>
+      <p><strong>Date:</strong> ${dateStr}</p>
 
-Student Name : ${formData.studentName}
-Student ID   : ${formData.studentId}
-Package Name : ${formData.packageName}
-Amount Paid  : £${formData.packageAmount}
-Date         : ${dateStr}
+      <hr />
 
---------------------------------------------
-This receipt confirms that the student has paid the selected package.
-Thank you for your payment.
-
-Authorized Signature: ______________________
-`;
+      <p>This receipt confirms that the student has paid the selected package.<br/>Thank you for your payment.</p>
+    <!-- QR  -->
+      <div style="text-align: center; margin-bottom: 20px;">
+       <img src="/assets/ad-qr.png" alt="AD SIGN SWIMMING ACADEMY" style="max-width: 100px;" />
+      </div>
+      <!-- Signature -->
+      <div style="margin-top: 50px;">
+        <p>Authorized Signature:</p>
+      </div>
+    </div>;`;
 	};
 
 	const handlePrint = () => {
-		const text = generateReceipt();
+		const html = generateReceipt();
 		const w = window.open("", "_blank");
 		if (!w) return;
 
 		w.document.title = "Payment Receipt";
-
-		const pre = w.document.createElement("pre");
-		pre.textContent = text;
-		pre.style.fontFamily = "monospace";
-		pre.style.fontSize = "14px";
-		pre.style.whiteSpace = "pre-wrap"; // wrap long lines
-		pre.style.margin = "20px";
-		w.document.body.append(pre);
+  
+		// Inject HTML directly
+		w.document.body.innerHTML = html;
 
 		w.print();
 		// w.close(); // optional
 	};
-
 	const handleSave = () => {
 		handleClose();
 		handlePrint();
