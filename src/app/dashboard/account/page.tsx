@@ -77,7 +77,7 @@ export default function Page() {
     <h3>Payment Confirmation</h3>
 
     <div style="text-align:center;">
-      <img src="/assets/ad-logo.jpg" style="max-width: 20mm;" />
+      <img src="/assets/ad-logo.jpg" style="max-width: 32mm;" />
     </div>
 
     <div style="text-align:center; font-size: 12px; line-height: 1.4; margin-bottom: 10px;">
@@ -97,11 +97,14 @@ export default function Page() {
     <p>This receipt confirms that the student has paid the selected package.<br/>Thank you for your payment.</p>
 
     <div style="text-align:center; margin:15px 0;">
-      <img src="/assets/ad-qr.png" style="max-width: 25mm;" />
+      <img src="/assets/ad-qr.png" style="max-width: 30mm;" />
     </div>
 
     <div style="margin: 60px 0;">
       <p><strong>Authorized Signature:</strong></p>
+      <br/>
+      <br/>
+      <br/>
     </div>
 
   </div>
