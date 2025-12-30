@@ -39,7 +39,6 @@ export default function Page() {
   <style>
     @page {
       size: 80mm 297mm;   /* RECEIPT SIZE */
-      margin: 5mm;        /* adjust if needed */
     }
 
     @media print {
@@ -78,8 +77,8 @@ export default function Page() {
 
     <h3>Receipt / Payment Confirmation</h3>
 
-    <div style="text-align:center; margin:10px 0;">
-      <img src="/assets/ad-logo.jpg" style="max-width: 60mm;" />
+    <div style="text-align:center;">
+      <img src="/assets/ad-logo.jpg" style="max-width: 20mm;" />
     </div>
 
     <div style="text-align:center; font-size: 14px; line-height: 1.4; margin-bottom: 10px;">
@@ -101,10 +100,10 @@ export default function Page() {
     <p>This receipt confirms that the student has paid the selected package.<br/>Thank you for your payment.</p>
 
     <div style="text-align:center; margin:15px 0;">
-      <img src="/assets/ad-qr.png" style="max-width: 45mm;" />
+      <img src="/assets/ad-qr.png" style="max-width: 25mm;" />
     </div>
 
-    <div style="margin-top: 25px;">
+    <div style="margin-top: 25px;margin-bottom: 35px;">
       <p><strong>Authorized Signature:</strong></p>
     </div>
 
